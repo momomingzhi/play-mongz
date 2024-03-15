@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>도라에몽과 함께하는 MBTI</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      @font-face {
+            font-family: 'PartialSansKR-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'KIMM_Bold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'SBAggroB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+      main {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url("./도라에몽1.png");
+        width: 100%;
+        height: 100vh;
+        font-family: 'SBAggroB', sans-serif;
+        position: relative;
+
+      }
+      h1 {
+        font-family: 'SBAggroB', sans-serif;
+        padding: 2rem;
+        font-size: 4rem;
+        
+        strong{
+            color: #fff;
+            letter-spacing: 0.5rem;
+            text-align: right; 
+        }
+      }
+      .start {
+        background-repeat: no-repeat;
+        background-image: url("./pngegg.png");
+        background-size: contain;
+        width: 40%;
+        height: 190px;
+        position: absolute;
+        bottom:7rem;
+        right: 4rem;;
+       
+      }
+      h2{
+        font-family: 'SBAggroB', sans-serif;
+        padding: 3rem;
+        font-size: 3rem;
+      }
+      .box-contain {
+        height: 100%;
+        display: flex;
+       
+      }
+      .chooseBox {
+        width: 40%;
+        height: 400px;
+        background-color: #fff;
+        opacity: 70%;
+        border-radius: 20px;
+        display: flex;
+        margin: 0 10px;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        p {
+            
+            font-size: 3rem;
+            text-align: center;
+        }
+      }
+      
+      .result {
+        width: 90%;
+        background: #fff;
+        height: 400px;
+        opacity: 70%;
+        margin: 0 auto;
+        display: flex;
+        border-radius: 20px;
+
+        align-items: center;
+        justify-content: center;
+
+      }
+      #text {
+        font-size: 25px;
+        padding: 1rem;
+      }
+      .invitation {
+        width: 90%;
+        height: auto;
+        background: #fff;
+        opacity: 70%;
+        margin: 0 auto;
+        padding: 1rem;
+        border-radius: 20px;
+        
+        .texts {
+            font-family: 'SBAggroB', sans-serif;
+            font-size: 3rem;
+
+            em {
+                color:lime
+            }
+        }
+
+        .inv {
+            font-family: 'KIMM_Bold', sans-serif;
+            font-size: 25px;
+        }
+        .strong {
+            font-family: 'KIMM_Bold', sans-serif;
+            font-size: 40px;
+        }
+    
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+        <section id="section1">
+            <h1>도라에몽과 함께하는 &nbsp;&nbsp;
+                <strong>MBTI</strong></title>
+                <div class="start" onClick="handlePageClick(2)"></button>    
+        </section>
+        
+
+        <section  id="section2" style="display: none;">
+            <h2 class="ask">당신이 좋아하는 음식은<br/> 무엇인가요?</h2>
+            <div class="box-contain">
+                <div class="chooseBox" value="치킨" onclick="handleChoose('food','치킨',3)">
+                    <p>치킨</p>
+                </div>
+                <div class="chooseBox" value="떡볶이" onclick="handleChoose('food','떡볶이',3)">
+                    <p>떡볶이</p>
+                </div>     
+            </div>
+        </section>
+
+        <section  id="section3" style="display: none;">
+            <h2 class="ask">당신이 좋아하는 귀가시간은<br/> 무엇인가요?</h2>
+            <div class="box-contain">
+                <div class="chooseBox" value="치킨" onclick="handleChoose('time','새벽', 4)">
+                    <p>캄캄한 새벽</p>
+                </div>
+                <div class="chooseBox" value="떡볶이" onclick="handleChoose('time','이른 귀가', 4)">
+                    <p>이른 귀가</p>
+                </div>     
+            </div>
+        </section>
+
+        <section  id="section4" style="display: none;">
+            <h2 class="ask">당신이 술을 좋아하나요?</h2>
+            <div class="box-contain">
+                <div class="chooseBox" value="술좋아" onclick="handleChoose('achol','술좋아', 5)">
+                    <p>짱 좋아!</p>
+                </div>
+                <div class="chooseBox" value="술싫어" onclick="handleChoose('achol','술싫어', 5)">
+                    <p>싫어!</p>
+                </div>     
+            </div>
+        </section>
+
+        <section  id="section5" style="display: none;">
+            <h2 class="ask">결과 나오는 중.....</h2>
+        </section>
+
+        <section  id="section6" style="display: none;">
+            <h2 class="ask">결과</h2>
+            <div class="result">
+                <p id="text">당신은....</p>
+            </div>
+            
+        </section>
+
+        <section  id="section7" style="display: none;">
+            <br />
+            <div class="invitation">
+                <p>주인장 맘대로 하는</p>
+                <p class="texts"><em>M</em>ongz</p>
+                <p class="texts"><em>B</em>ubbly party</p>
+                <p class="texts"><em>T</em>ime</p>
+                <p class="texts"><em>I</em>nvitation</p>
+                <br />
+                <br />
+                <p class="inv">일시: 2024월 3월16일 토요일 12시</p>
+                <br />
+                <strong class="strong">명지네 집에 <br /> 당신을 초대합니다</stron>
+            </div>
+            
+        </section>
+    </main>
+    <script>
+        let userInfo = {};
+        let page = 0;
+        const startButton = document.querySelector('.start');
+        
+       
+        function handleChoose(type,food, page) {
+            userInfo[type] = food;
+            console.log(userInfo); // userInfo를 콘솔에 출력하여 확인합니다.
+            handlePageClick(page)
+        }
+        function handlePageClick(param) {
+            // 페이지를 전환합니다.
+            if (param === 0) {
+                document.getElementById('section1').style.display = 'none'; // 첫 번째 섹션 숨김
+                document.getElementById('section2').style.display = 'block'; // 두 번째 섹션 표시
+                document.getElementById('section3').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section4').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section5').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section6').style.display = 'none'; // 두 번째 섹션 표시
+                
+            } else if(param === 2) {
+                document.getElementById('section1').style.display = 'none'; // 첫 번째 섹션 숨김
+                document.getElementById('section2').style.display = 'block'; // 두 번째 섹션 표시
+                document.getElementById('section3').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section4').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section5').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section6').style.display = 'none'; // 두 번째 섹션 표시
+            }
+            else if(param === 3) {
+                document.getElementById('section1').style.display = 'none'; // 첫 번째 섹션 숨김
+                document.getElementById('section2').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section3').style.display = 'block'; // 두 번째 섹션 표시
+                document.getElementById('section4').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section5').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section6').style.display = 'none'; // 두 번째 섹션 표시
+
+            }
+            else if(param === 4) {
+                document.getElementById('section1').style.display = 'none'; // 첫 번째 섹션 숨김
+                document.getElementById('section2').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section3').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section4').style.display = 'block'; // 두 번째 섹션 표시
+                document.getElementById('section5').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section6').style.display = 'none'; // 두 번째 섹션 표시
+
+            }
+            else if (page === 5) { // 페이지가 5일 때 섹션 6을 5초 후에 표시합니다.
+                document.getElementById('section1').style.display = 'none'; // 첫 번째 섹션 숨김
+                document.getElementById('section2').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section3').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section4').style.display = 'none'; // 두 번째 섹션 표시
+                document.getElementById('section5').style.display = 'block';
+                document.getElementById('section6').style.display = 'none';
+                setTimeout(() => {
+                    document.getElementById('section1').style.display = 'none'; // 첫 번째 섹션 숨김
+                    document.getElementById('section2').style.display = 'none'; // 두 번째 섹션 표시
+                    document.getElementById('section3').style.display = 'none'; // 두 번째 섹션 표시
+                    document.getElementById('section4').style.display = 'none'; // 두 번째 섹션 표시
+                    document.getElementById('section5').style.display = 'none';
+                    document.getElementById('section6').style.display = 'block';
+
+                    const text = document.getElementById('text');
+                    setTimeout(() => {
+                        text.innerText = text.innerText + userInfo.food + '을 좋아하고....\n'
+                        
+                    },1000)
+                    setTimeout(() => {
+                        text.innerText = text.innerText + userInfo.time + '를 좋아하고....\n'
+                    },2000)
+                    setTimeout(() => {
+                        text.innerText = text.innerText + userInfo.achol + '타입이겠지만.....\n\n\n'
+                    },3000)
+                    setTimeout(() => {
+                        text.innerText = text.innerText + '주인장은 떡볶이를 좋아하고....\n'
+                    },4000)
+                    setTimeout(() => {
+                        text.innerText = text.innerText + '침대에 누워있는 것을 좋아하고....\n'
+                    },5000)
+                    setTimeout(() => {
+                        text.innerText = text.innerText +'술은 아주아주 싫어하는 타입이기 때문에\n'
+                    },6000)
+                    setTimeout(() => {
+                        document.getElementById('section6').style.display = 'none';
+                        document.getElementById('section7').style.display = 'block';
+                    },8000)
+                },2000)
+            }
+            page = param + 1;
+        }
+        
+    </script>
+  </body>
+</html>
